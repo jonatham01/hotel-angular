@@ -1,1 +1,8 @@
 /* You can add global styles to this file, and also import other style files */
+@import "tailwindcss/preflight"; /* Reemplaza @tailwind base */
+@layer components {
+  /* Aquí puedes poner tus componentes personalizados */
+}
+@tailwind utilities;
+
+@import "tailwindcss";
