@@ -35,17 +35,17 @@ export class FeeService {
       );
     }
   
-    getAll(): Observable<FeeResponseDTO> {
-      return this.httpClient.get<FeeResponseDTO>(
+    getAll(): Observable<FeeResponseDTO[]> {
+      return this.httpClient.get<FeeResponseDTO[]>(
         `${this.apiUrl}`
       ).pipe(
         catchError(this.handleError)
       );
     }
 
-    getAllByCategory(id: bigint): Observable<FeeResponseDTO> {
+    getAllByCategory(id: bigint): Observable<FeeResponseDTO[]> {
       const params = new HttpParams().set('id', id.toString());
-      return this.httpClient.get<FeeResponseDTO>(
+      return this.httpClient.get<FeeResponseDTO[]>(
         `${this.apiUrl}/category`, {params}
       ).pipe(
         catchError(this.handleError)
