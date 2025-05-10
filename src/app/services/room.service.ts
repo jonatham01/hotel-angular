@@ -9,7 +9,7 @@ import { RoomRequest, RoomResponse } from '../models/room.model';
 export class RoomService {
 
 
-  apiUrl:string = "/api/gallery";
+  apiUrl:string = "/room";
     
     private handleError = (error: HttpErrorResponse) => {
       return throwError(() => new Error('Error' + error.message));
@@ -43,7 +43,7 @@ export class RoomService {
       );
     }
 
-    update(id: bigint, dto: RoomRequest): Observable<RoomResponse> {
+    update(id: number, dto: RoomRequest): Observable<RoomResponse> {
         return this.httpClient.put<RoomResponse>(
           `${this.apiUrl}/update/${id}`,
           dto

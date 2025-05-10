@@ -1,6 +1,6 @@
 import { DisponibilityRoom } from "./disponibilityRoom.model";
 
-export interface disponibility {
+export interface Disponibility {
     id: bigint;
     categoryId: number;
     categoryName: string;
@@ -11,7 +11,7 @@ export interface disponibility {
     dontAvailableRooms: DisponibilityRoom[];
   }
 
-export interface disponibilityRequestDTO {
+export interface DisponibilityRequestDTO {
     categoryId: number;
     categoryName: string;
     date: Date;
