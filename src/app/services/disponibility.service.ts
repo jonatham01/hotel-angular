@@ -26,7 +26,7 @@ export class DisponibilityService {
   );
 }
   
-    getOne(id: number): Observable<Disponibility> {
+    getOne(id: bigint): Observable<Disponibility> {
       return this.httpClient.get<Disponibility>(
         `${this.apiUrl}/id/${id}`
       ).pipe(
@@ -50,7 +50,7 @@ export class DisponibilityService {
       );
     }
 
-    update(id: bigint, dto: Disponibility): Observable<Disponibility> {
+    /*update(id: bigint, dto: Disponibility): Observable<Disponibility> {
         return this.httpClient.put<Disponibility>(
           `${this.apiUrl}/update/${id}`,
           dto
@@ -58,7 +58,7 @@ export class DisponibilityService {
         catchError(this.handleError)
       );
     }
-
+*/
   
     
 }
