@@ -26,7 +26,7 @@ export class FeeService {
       );
     }
   
-    getHotel(id: bigint): Observable<FeeResponseDTO> {
+    getOne(id: bigint): Observable<FeeResponseDTO> {
       const params = new HttpParams().set('id', id.toString());
       return this.httpClient.get<FeeResponseDTO>(
         `${this.apiUrl}`, {params}
