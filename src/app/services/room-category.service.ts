@@ -9,7 +9,7 @@ import { RoomCategoryRequestDTO, RoomCategoryResponseDTO } from '../models/roomC
 export class RoomCategoryService {
 
 
-  apiUrl:string = "/fees";
+  apiUrl:string = "/room-categories";
     
     private handleError = (error: HttpErrorResponse) => {
       return throwError(() => new Error('Error' + error.message));

@@ -9,5 +9,5 @@ export interface RoomCategoryGalleryRequestDTO{
     tittle: string;
     description: string;
     categoryId: number;
-    image: File;
+    image: File | null;
 }

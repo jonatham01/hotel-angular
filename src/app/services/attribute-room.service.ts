@@ -34,7 +34,7 @@ export class AttributeRoomService {
   );
 }
   
-    getHotel(id: number): Observable<RoomAttributeResponseDTO> {
+    getOne(id: number): Observable<RoomAttributeResponseDTO> {
       const params = new HttpParams().set('id', id);
       return this.httpClient.get<RoomAttributeResponseDTO>(
         `${this.apiUrl}/id`, {params}
