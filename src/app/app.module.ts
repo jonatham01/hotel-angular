@@ -15,6 +15,9 @@ import { RoomsPageComponent } from './components/rooms-page/rooms-page.component
 import { MenuLoginComponent } from './components/login/menu-login/menu-login.component';
 import { LeftLoginComponent } from './components/login/left-login/left-login.component';
 import { FormLoginComponent } from './components/login/form-login/form-login.component';
+import { RegisterComponent } from './components/register/register.component';
+import { HomeComponent } from './components/home/home.component';
+import { RoomPageComponent } from './components/room-page/room-page.component';
 
 
 
@@ -26,7 +29,10 @@ import { FormLoginComponent } from './components/login/form-login/form-login.com
     RoomsPageComponent,
     MenuLoginComponent,
     LeftLoginComponent,
-    FormLoginComponent
+    FormLoginComponent,
+    RegisterComponent,
+    HomeComponent,
+    RoomPageComponent
   ],
   imports: [
     BrowserModule,
