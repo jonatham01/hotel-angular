@@ -12,7 +12,7 @@ export class FormLoginComponent {
   title = 'Login';
 
   loginData:UserLoginRequestDTO = {
-    email:'',
+    username:'',
     password: ''
   };
   emailError = false;
@@ -24,16 +24,16 @@ export class FormLoginComponent {
 
   toLogin(): void{
     
-    if(this.loginData.email =='' && this.loginData.password ==''){ 
+    if(this.loginData.username =='' && this.loginData.password ==''){ 
       this.emailError = true;
       this.passError=true;
     }
-    else if(this.loginData.email !='' && this.loginData.password ==''){ 
+    else if(this.loginData.username !='' && this.loginData.password ==''){ 
       this.emailError = false;
       this.passError=true;
     }
    
-    else if(this.loginData.email =='' && this.loginData.password !=''){
+    else if(this.loginData.username =='' && this.loginData.password !=''){
       this.emailError = true;
       this.passError=false;
     }

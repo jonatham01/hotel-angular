@@ -4,12 +4,12 @@
 
     <p class="pb-8 text-gray-800 md:text-gray-500"> Por favor, ingrese sus datos de identificación.</p>
 
-    <label for="email" *ngIf="!emailError" class="text-start w-full justify-center">Correo electronico.</label>
+    <label for="email" *ngIf="!emailError" class="text-start w-full justify-center">Nombre de usuario.</label>
 
-    <label for="email" *ngIf="emailError" class="text-red-700"> Ingrese su correo electronico.</label>
+    <label for="email" *ngIf="emailError" class="text-red-700"> Ingrese su nombre de usuario.</label>
 
     <input type="text" placeholder="Cual es tu email?" class="w-full py-3 rounded bg-gray-100 border-gray-300 border-2"
-        [(ngModel)]="loginData.email" [ngModelOptions]="{standalone:true}" />
+        [(ngModel)]="loginData.username" [ngModelOptions]="{standalone:true}" />
 
     <div class="flex flex-row justify-between w-full">
         <div>

@@ -22,7 +22,7 @@ export class AuthService {
 
   getProfile(){
     return this.httpClient.post<UserLoad>(
-      `${this.apiUrl}/profile`,this.tokenService.getToken()
+      `${this.apiUrl}/profile?jwt=${this.tokenService.getToken()}`, null
       );
   }
 
@@ -30,7 +30,9 @@ export class AuthService {
     return this.httpClient.post<UserLoginResponseDTO>(
       `${this.apiUrl}/authenticate`,dto
     ).pipe(
-      tap(response => { this.tokenService.save(response.jwt); }),
+      tap(response => { 
+        this.tokenService.save(response.token); 
+      }),
       catchError((error: HttpErrorResponse) => {
       if (error.status === HttpStatusCode.Conflict) {
         return throwError(() => new Error('Conflict: ' + error.message));

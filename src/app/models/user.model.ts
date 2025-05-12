@@ -19,9 +19,9 @@ export interface User {
   }
   
   export interface UserLoginRequestDTO {
-    email: string;
+    username: string;
     password: string;
   }
   export interface UserLoginResponseDTO {
-    jwt:string
+    token:string
   }

@@ -18,6 +18,7 @@ import { FormLoginComponent } from './components/login/form-login/form-login.com
 import { RegisterComponent } from './components/register/register.component';
 import { HomeComponent } from './components/home/home.component';
 import { RoomPageComponent } from './components/room-page/room-page.component';
+import { TokenInterceptor } from './interceptors/token.interceptor';
 
 
 
@@ -43,7 +44,13 @@ import { RoomPageComponent } from './components/room-page/room-page.component';
     FontAwesomeModule,
 
   ],
-  providers: [],
+    providers:[
+      {
+        provide : HTTP_INTERCEPTORS, 
+        useClass: TokenInterceptor, 
+        multi: true
+      }
+    ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
