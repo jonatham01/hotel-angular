@@ -12,6 +12,9 @@ import { NgStyle } from '@angular/common';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { LoginComponent } from './components/login/login.component';
 import { RoomsPageComponent } from './components/rooms-page/rooms-page.component';
+import { MenuLoginComponent } from './components/login/menu-login/menu-login.component';
+import { LeftLoginComponent } from './components/login/left-login/left-login.component';
+import { FormLoginComponent } from './components/login/form-login/form-login.component';
 
 
 
@@ -20,7 +23,10 @@ import { RoomsPageComponent } from './components/rooms-page/rooms-page.component
   declarations: [
     AppComponent,
     LoginComponent,
-    RoomsPageComponent
+    RoomsPageComponent,
+    MenuLoginComponent,
+    LeftLoginComponent,
+    FormLoginComponent
   ],
   imports: [
     BrowserModule,

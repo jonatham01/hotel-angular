@@ -1,0 +1,32 @@
+<form novalidate class="md:h-screen h-min space-y-4 w-10/12 md:w-6/12 items-center justify-center flex flex-col relative ">
+
+    <h1 class="font-bold text-4xl text-center"> Iniciar sesión en HotelManager</h1>
+
+    <p class="pb-8 text-gray-800 md:text-gray-500"> Por favor, ingrese sus datos de identificación.</p>
+
+    <label for="email" *ngIf="!emailError" class="text-start w-full justify-center">Correo electronico.</label>
+
+    <label for="email" *ngIf="emailError" class="text-red-700"> Ingrese su correo electronico.</label>
+
+    <input type="text" placeholder="Cual es tu email?" class="w-full py-3 rounded bg-gray-100 border-gray-300 border-2"
+        [(ngModel)]="loginData.email" [ngModelOptions]="{standalone:true}" />
+
+    <div class="flex flex-row justify-between w-full">
+        <div>
+            <label for="password" *ngIf="!passError">Contraseña</label>
+            <label for="password" *ngIf="passError" class="text-red-700">Please enter your password</label>
+        </div>
+        
+    </div>
+
+    <input id="password" placeholder="Cual es la contraseña?" type="password"
+        class="w-full py-3 rounded bg-gray-100 border-gray-300 border-2 " [(ngModel)]="loginData.password"
+        [ngModelOptions]="{standalone: true}" />
+
+    <button (click)="toLogin()" class="rounded px-8  py-4 text-white font-bold text-lg  mt-4 w-full
+        bg-gradient-to-r from-cyan-400 to-blue-500 hover:from-pink-500 hover:to-yellow-500
+        ">Iniciar sesión</button>
+
+   
+
+</form>
