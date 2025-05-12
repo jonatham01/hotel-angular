@@ -1,26 +1,19 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { UserComponent } from './admin/user/user.component';
-import { ReservationsComponent } from './admin/reservations/reservations.component';
-import { RoomsComponent } from './admin/rooms/rooms.component';
+import { adminGuard } from './guards/admin.guard';
+import { LoginComponent } from './components/login/login.component';
+
 
 const routes: Routes = [
+  
   {
-    path:'',
-    redirectTo:'/admin/user',
-    pathMatch:'full'
+    path: 'admin',
+    canActivate:[adminGuard],
+    loadChildren:() =>import('./admin/admin.module').then(m=> m.AdminModule)
   },
   {
-    path:'user',
-    component:UserComponent
-  },
-  {
-    path:'reservations',
-    component:ReservationsComponent
-  },
-  {
-    path:'rooms',
-    component:RoomsComponent
+    path:'login',
+    component: LoginComponent
   }
 ];
 
