@@ -1,7 +1,7 @@
 
 export interface User {
     id: any;
-    userName: string;
+    username: string;
     name:string;
     password: string;
     role:string;
@@ -11,7 +11,10 @@ export interface User {
     jwt: string;
   }
   
-  export interface UserRequestDTO extends Omit<User, 'id'> {
+  export interface UserRequestDTO {
+    username: string;
+    name:string;
+    password: string;
     repeatedPassword: string
   }
   

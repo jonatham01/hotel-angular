@@ -1,35 +1,27 @@
 <div class="flex flex-col w-full h-full justify-center items-center bg-white">
-    <form novalidate class="w-6/12 items-center justify-center flex flex-col relative">
-        <h1 class="font-bold text-4xl text-center">Regostrar usuario</h1>
-        <p class="pb-8 text-gray-800 md:text-gray-500"></p>
+  <form novalidate class="w-6/12 items-center justify-center flex flex-col relative">
+    <h1 class="font-bold text-4xl text-center">Registrar usuario</h1>
+    <p class="pb-8 text-gray-800 md:text-gray-500"></p>
 
-        <label for="username" *ngIf="!userNameError" class='text-start w-full justify-center'>Nombre de usuario</label>
+    <!-- USERNAME -->
+    <label [ngClass]="userNameError ? 'text-red-700' : ''" class="text-start w-full">Nombre de usuario {{ userNameError ? '(Por favor asignar)' : '' }}</label>
+    <input type="text" [(ngModel)]="dto.username" [ngModelOptions]="{standalone:true}" placeholder="¿Cuál es tu nombre de usuario?" class="w-full py-3 rounded bg-gray-100 border-2 border-gray-300">
 
-        <label for="username" *ngIf="userNameError" class='text-start w-full justify-center text-red-700'>Nombre de usuario (Por favor asignar)</label>
+    <!-- NAME -->
+    <label [ngClass]="nameError ? 'text-red-700' : ''" class="text-start w-full">Nombre completo {{ nameError ? '(Por favor asignar)' : '' }}</label>
+    <input type="text" [(ngModel)]="dto.name" [ngModelOptions]="{standalone:true}" placeholder="¿Cuál es tu nombre completo?" class="w-full py-3 rounded bg-gray-100 border-2 border-gray-300">
 
-        <input type="text" [(ngModel)]="dto.userName" [ngModelOptions]="{standalone:true}" placeholder="Cual es tu nombre de usuario?" class="w-full py-3 rounded bg-gray-100 border-gray-300 border-2"  >
+    <!-- PASSWORD -->
+    <label [ngClass]="passError ? 'text-red-700' : ''" class="text-start w-full">Contraseña {{ passError ? '(Por favor asignar)' : '' }}</label>
+    <input type="password" [(ngModel)]="dto.password" [ngModelOptions]="{standalone:true}" placeholder="Digitar contraseña" class="w-full py-3 rounded bg-gray-100 border-2 border-gray-300">
 
-        <label for="name"  *ngIf="!nameError" class='text-start w-full justify-center'>Nombre completo</label>
+    <!-- REPEATED PASSWORD -->
+    <label [ngClass]="repeatedError ? 'text-red-700' : ''" class="text-start w-full">Repetir contraseña {{ repeatedError ? '(Por favor asignar)' : '' }}</label>
+    <input type="password" [(ngModel)]="dto.repeatedPassword" [ngModelOptions]="{standalone:true}" placeholder="Repite la contraseña" class="w-full py-3 rounded bg-gray-100 border-2 border-gray-300">
 
-        <label for="name"  *ngIf="nameError" class='text-start w-full justify-center text-red-700'>Nombre completo(Por favor asignar)</label>
-
-        <input type="text" [(ngModel)]="dto.name" [ngModelOptions]="{standalone:true}" placeholder="Cual es tu nombre completo?" class="w-full py-3 rounded bg-gray-100 border-gray-300 border-2" >
-
-        <label for="password"  *ngIf="!passError" class='text-start w-full justify-center'>Contraseña</label>
-
-        <label for="password"  *ngIf="passError" class='text-start w-full justify-center text-red-700'>Contraseña (Por favor asignar)</label>
-
-        <input type="password" [(ngModel)]="dto.password" [ngModelOptions]="{standalone:true}" placeholder="Digitar contraseña" class="w-full py-3 rounded bg-gray-100 border-gray-300 border-2" >
-
-        <label for="repeated"  *ngIf="!repeatedError" class='text-start w-full justify-center'>Repetir contraseña</label>
-
-         <label for="repeated"  *ngIf="!repeatedError" class='text-start w-full justify-center text-red-700'>Repetir contraseña(Por favor asignar)</label>
-
-        <input type="text" [(ngModel)]="dto.repeatedPassword" [ngModelOptions]="{standalone:true}" placeholder="Repite la contraseña" class="w-full py-3 rounded bg-gray-100 border-gray-300 border-2">   
-        
-        <button (click)="register()" class="rounded px-8  py-4 text-white font-bold text-lg  mt-4 w-full
-        bg-gradient-to-r from-cyan-400 to-blue-500 hover:from-pink-500 hover:to-yellow-500
-        ">Crear usuario</button>
-
-    </form>
+    <!-- BUTTON -->
+    <button (click)="register()" type="button" class="rounded px-8 py-4 text-white font-bold text-lg mt-4 w-full bg-gradient-to-r from-cyan-400 to-blue-500 hover:from-pink-500 hover:to-yellow-500">
+      Crear usuario
+    </button>
+  </form>
 </div>

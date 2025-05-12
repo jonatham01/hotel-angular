@@ -10,7 +10,7 @@ import { Router } from '@angular/router';
 })
 export class AuthService {
 
-  private apiUrl:string = '/auth';
+  private apiUrl:string = 'http://localhost:8090/auth';
   private user = new BehaviorSubject<UserLoad | null>(null);
   user$ = this.user.asObservable();
 

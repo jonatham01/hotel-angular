@@ -10,11 +10,10 @@ import { AuthService } from 'src/app/services/auth.service';
 export class RegisterComponent {
 
    dto:UserRequestDTO={
-    userName :'',
+    username :'',
     name: '',
     password: '',
-    repeatedPassword:'',
-    role: '',
+    repeatedPassword:''
   };
 
   userNameError=false ;
@@ -23,11 +22,20 @@ export class RegisterComponent {
   repeatedError=false ;
 
   constructor(
+
     private authService:AuthService
   ){}
 
   register(){
-    this.authService.create(this.dto);
+    console.log(this.dto);
+     this.userNameError = this.dto.username.trim() === '';
+    this.nameError = this.dto.name.trim() === '';
+    this.passError = this.dto.password.trim() === '';
+    this.repeatedError = this.dto.repeatedPassword.trim() === '';
+
+    if(!this.userNameError && !this.nameError && !this.passError && !this.repeatedError) {
+      this.authService.create(this.dto);
+    }
   }
 
  
