@@ -7,11 +7,14 @@ export interface RoomCategory{
     roomCategoryName: string;
     roomCategoryPrice: number;
     roomCategoryDescription: string;
-    roomCategoryGallery: bigint;
 
 }
-export interface RoomCategoryRequestDTO extends Omit<RoomCategory, 'roomCategoryId'>{
-    roomCategoryHotelId: number;
+export interface RoomCategoryRequestDTO {
+    roomCategoryName?: string;
+    roomCategoryPrice?: number;
+    roomCategoryDescription?: string;
+    roomCategoryHotelId?: number;
+
 }
 export interface RoomCategoryResponseDTO extends RoomCategory{
     hotel: Hotel;

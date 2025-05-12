@@ -12,6 +12,7 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { CategoriesComponent } from './categories/categories.component';
 import { PaymentsComponent } from './payments/payments.component';
 import { GalleryComponent } from './gallery/gallery.component';
+import { HotelComponent } from './hotel/hotel.component';
 
 
 @NgModule({
@@ -21,7 +22,8 @@ import { GalleryComponent } from './gallery/gallery.component';
     RoomsComponent,
     CategoriesComponent,
     PaymentsComponent,
-    GalleryComponent
+    GalleryComponent,
+    HotelComponent
   ],
   imports: [
     CommonModule,
