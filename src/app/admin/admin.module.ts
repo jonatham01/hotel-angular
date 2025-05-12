@@ -9,13 +9,19 @@ import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { TokenInterceptor } from '../interceptors/token.interceptor';
 import { FormsModule } from '@angular/forms';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { CategoriesComponent } from './categories/categories.component';
+import { PaymentsComponent } from './payments/payments.component';
+import { GalleryComponent } from './gallery/gallery.component';
 
 
 @NgModule({
   declarations: [
     UserComponent,
     ReservationsComponent,
-    RoomsComponent
+    RoomsComponent,
+    CategoriesComponent,
+    PaymentsComponent,
+    GalleryComponent
   ],
   imports: [
     CommonModule,
