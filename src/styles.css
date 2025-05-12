@@ -1,8 +1,13 @@
-/* You can add global styles to this file, and also import other style files */
-@import "tailwindcss/preflight"; /* Reemplaza @tailwind base */
-@layer components {
-  /* Aquí puedes poner tus componentes personalizados */
-}
+@tailwind base;
+@tailwind components;
 @tailwind utilities;
 
-@import "tailwindcss";
+/* Puedes agregar tus componentes personalizados aquí si quieres */
+@layer components {
+  /* Ejemplo:
+  .btn {
+    @apply px-4 py-2 bg-blue-500 text-white rounded;
+  }
+  */
+}
+

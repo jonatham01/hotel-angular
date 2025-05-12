@@ -40,7 +40,7 @@ export class FormLoginComponent {
     else{
       this.emailError = false;
       this.passError=false;
-      this.authService.login(this.loginData);
+      this.authService.loginAndGet(this.loginData);
 
 
   }

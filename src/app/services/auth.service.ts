@@ -83,7 +83,8 @@ export class AuthService {
         }
         return throwError(error.message);
       })
-    ); 
+    )
+    .subscribe(response =>{ this.router.navigateByUrl('/login')}); 
   }
 
 
