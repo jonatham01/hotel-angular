@@ -4,7 +4,6 @@ export interface Hotel{
     hotelId: number;
     hotelName: string;
     hotelAddress: string;
-    hotelEmail: string;
     hotelCity: string;
     hotelState: string;
     hotelCountry: string;
@@ -15,7 +14,6 @@ export interface Hotel{
 export interface HotelRequestDTO{
     name: string;
     address: string;
-    email: string;
     city: string;
     state: string;
     country: string;

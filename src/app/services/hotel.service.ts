@@ -8,7 +8,7 @@ import { Observable } from 'rxjs';
 })
 export class HotelService {
 
-  apiUrl:String = "/hotel";
+  apiUrl:String = "http://localhost:8090/hotel";
 
   constructor(
     private httpClient: HttpClient

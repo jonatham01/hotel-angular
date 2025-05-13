@@ -1,1 +1,99 @@
-<app-user></app-user>
+
+
+<div class="bg-slate-200 h-screen">
+    <app-user></app-user>
+    <div class="flex  w-full justify-center    ">
+        <main class="flex flex-col w-8/12     p-10 space-y-10  ">
+            <h1>Admin/Hotel</h1>
+            <p *ngIf="mesaggeValid"> {{message}} </p>
+
+            <section class="bg-white flex flex-col p-4 ">
+                <div class="flex flex-row w-full  justify-around pb-4 ">
+                    <div class="flex flex-col  w-5/12">
+                        <!-- nombre -->
+                        <label for="name" 
+                            [ngClass]="hotelError.name ? 'text-red-700' : ''" 
+                            class="text-start w-full">
+                        Nombre del hotel
+                        </label>
+                        <input type="text" name="name" [(ngModel)]="hotelDTO.name" >
+                    </div>
+
+                    <div class="flex flex-col  w-5/12">
+                        <!-- pais -->
+                        <label for="country"
+                            [ngClass]="hotelError.country ? 'text-red-700' : ''" 
+                            class="text-start w-full">
+                        Pais
+                        </label>
+                        <input type="text" name="country" [(ngModel)]="hotelDTO.country" >
+                    </div>
+                </div>
+
+                <div  class="flex flex-row w-full  justify-around pb-4">
+                    <div class="flex flex-col w-5/12">
+                        <!-- estado -->
+                        <label for="state"
+                            [ngClass]="hotelError.state ? 'text-red-700' : ''" 
+                            class="text-start w-full">
+                        Estado
+                        </label>
+                        <input type="text" name="state" [(ngModel)]="hotelDTO.state" >
+                    </div>
+
+                    <div class="flex flex-col w-5/12">
+                        <!-- ciudad -->
+                        <label for="city" [ngClass]="hotelError.city ? 'text-red-700' : ''" 
+                            class="text-start w-full">
+                        Ciudad
+                        </label>
+                        <input type="text" name="city" [(ngModel)]="hotelDTO.city" >
+                    </div>
+                </div>
+
+                <div class="flex flex-row w-full  justify-around pb-4">
+                    <div  class="flex flex-col w-5/12">
+                        <!-- direccion -->
+                        <label for="address" [ngClass]="hotelError.address ? 'text-red-700' : ''" 
+                            class="text-start w-full">
+                        Dirección
+                        </label>
+                        <input type="text" name="address" [(ngModel)]="hotelDTO.address" >
+                    </div>
+
+                    <div  class="flex flex-col w-5/12">
+                         <button (click)="updateHotel()" class="rounded px-8 py-4 text-white font-bold text-lg mt-4 w-full bg-gradient-to-r from-cyan-400 to-blue-500 hover:from-pink-500 hover:to-yellow-500 "  type="button">Actualizar información </button>
+                    </div>
+                </div>
+            </section>
+
+            <section class="bg-white flex flex-col p-4 ">
+                <div  class="flex flex-row w-full  justify-around pb-4">
+                    <div class="flex flex-col  w-5/12">
+                        <input class="mt-4 px-8 py-4" type="text" placeholder="Número de telefono o  celular" [(ngModel)]="phoneDto.number">
+                    </div>
+                    <div class="flex flex-col  w-5/12">
+                        <button  (click)="phoneId == null ? createPhone() : updatePhone()" class="rounded px-8 py-4 text-white font-bold text-lg mt-4 w-full bg-gradient-to-r from-cyan-400 to-blue-500 hover:from-pink-500 hover:to-yellow-500 "  type="button">
+                             {{ phoneId == null ? 'Añadir nuevo número' : 'Actualizar número de telefono' }}
+                        </button>
+
+                        
+                    </div>
+                </div>
+
+            </section>
+
+            <section class="bg-white">
+                <div class=" flex flex-col py-4 px-20"  *ngFor="let phone of phones" >
+                    <div class="flex flex-row w-full gap-x-4 pb-4">
+                        <input type="text" class="flex-1" [value]="phone.hotelNumber" disabled>
+                        <button class="flex-1 border bg-slate-100 p-2" (click)="updateForm(phone.hotelNumber, phone.id)">Modificar</button>
+                        <button class="flex-1 border bg-slate-100 p-2" (click)="delete(phone.hotelNumber)">Eliminar</button>
+                    </div>
+                </div>
+            </section>
+
+        </main>
+    </div>
+
+</div>
