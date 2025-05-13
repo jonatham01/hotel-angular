@@ -9,7 +9,7 @@ import { RoomCategoryRequestDTO, RoomCategoryResponseDTO } from '../models/roomC
 export class RoomCategoryService {
 
 
-  apiUrl:string = "/room-categories";
+  apiUrl:string = "http://localhost:8090/room-categories";
     
     private handleError = (error: HttpErrorResponse) => {
       return throwError(() => new Error('Error' + error.message));
@@ -20,6 +20,7 @@ export class RoomCategoryService {
     ) { }
 
   create(dto:RoomCategoryRequestDTO): Observable<RoomCategoryResponseDTO> {
+    console.log("creando")
       return this.httpClient.post<RoomCategoryResponseDTO>(
         `${this.apiUrl}`, dto
       ).pipe(
@@ -76,7 +77,7 @@ export class RoomCategoryService {
     }
   
     delete(id: number) {
-      this.httpClient.delete<void>(
+      return this.httpClient.delete<string>(
         `${this.apiUrl}/delete/${id}`
       ).pipe(
         catchError(this.handleError)

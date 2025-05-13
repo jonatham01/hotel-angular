@@ -1,1 +1,66 @@
-<app-user></app-user>
+
+<div class="bg-slate-200 h-screen">
+    <app-user></app-user>
+    <div class="flex  w-full justify-center">
+        <main class="flex flex-col w-8/12     p-10 space-y-10  ">
+             <h1 class="text-xl">Admin/Tipos de habitaciones del hotel</h1>
+            <p *ngIf="mesaggeValid"> {{message}} </p>
+
+            <button *ngIf="!formValid" (click)="activeForm()" class="border bg-blue-300 p-2 w-2/12">Crear nueva categoría</button>
+
+            <section *ngIf="formValid" class="bg-white flex flex-col py-4 px-20 space-y-4">
+
+                <label class="flex flex-col text-sm font-medium text-gray-700">
+                    Nombre de la categoría
+                    <input
+                    type="text"
+                    class="flex-1 mt-1 border p-2 rounded"
+                    placeholder="¿Cuál es el nombre de la categoría?"
+                    [(ngModel)]="dto.roomCategoryName"
+                    />
+                </label>
+
+                <label class="flex flex-col text-sm font-medium text-gray-700">
+                    Características de la categoría
+                    <textarea
+                    class="flex-1 mt-1 border p-2 rounded"
+                    placeholder="¿Cuáles son las características de la categoría?"
+                    [(ngModel)]="dto.roomCategoryDescription"
+                    ></textarea>
+                </label>
+
+                <label class="flex flex-col text-sm font-medium text-gray-700">
+                    Precio por noche
+                    <input
+                    type="number"
+                    class="flex-1 mt-1 border p-2 rounded"
+                    placeholder="¿Cuál es el valor por noche de la habitación?"
+                    [(ngModel)]="dto.roomCategoryPrice"
+                    />
+                </label>
+
+               <button
+                (click)="updateValid ? update() : create()"
+                class="flex-1 border bg-slate-100 p-2 rounded font-semibold hover:bg-slate-200 transition"
+                >
+                {{ updateValid ? 'Actualizar' : 'Crear' }}
+                </button>
+
+            </section>
+
+
+            <section class="bg-white">
+                <div class=" flex flex-col py-4 px-20"  *ngFor="let category of categories" >
+                    <div class="flex flex-row w-full gap-x-4 pb-4">
+                         <input type="text" class="flex-1" [value]="category.roomCategoryName" disabled>
+                         <textarea type="text" class="flex-1" [value]="category.roomCategoryDescription" disabled > </textarea>
+                         <input type="number" class="flex-1" [value]="category.roomCategoryPrice" disabled>
+                         <button (click)="updateForm(category)" class="flex-1 border bg-slate-100 p-2">Modificar</button>
+                        <button (click)="delete(category.roomCategoryId)" class="flex-1 border bg-slate-100 p-2" >Eliminar</button>
+                    </div>
+                </div>
+            </section>
+
+        </main>
+    </div>
+</div>

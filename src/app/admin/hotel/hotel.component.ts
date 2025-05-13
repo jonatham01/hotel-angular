@@ -155,7 +155,7 @@ export class HotelComponent {
     }
   }
   delete(number:string){
-    this.phoneService.delete(number).subscribe();
+     this.phoneService.delete(number).subscribe();
      this.phones = this.phones.filter(phone => phone.hotelNumber !== number);
   }
 
