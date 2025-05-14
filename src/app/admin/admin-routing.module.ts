@@ -6,6 +6,7 @@ import { RoomsComponent } from './rooms/rooms.component';
 import { CategoriesComponent } from './categories/categories.component';
 import { HotelComponent } from './hotel/hotel.component';
 import { AttributeComponent } from './attribute/attribute.component';
+import { GalleryComponent } from './gallery/gallery.component';
 
 const routes: Routes = [
   {
@@ -32,6 +33,10 @@ const routes: Routes = [
   {
     path: 'attribute/:name',
     component: AttributeComponent
+  },
+  {
+    path: 'gallery/:name',
+    component: GalleryComponent
   }
 ];
 

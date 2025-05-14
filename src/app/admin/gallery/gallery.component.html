@@ -1,1 +1,64 @@
-<p>gallery works!</p>
+<div class="bg-slate-200 h-screen">
+    <app-user></app-user>
+    <div class="flex  w-full justify-center">
+        <main class="flex flex-col w-8/12     p-10 space-y-10  ">
+            <h1 class="text-xl">Admin/Categoria/Galerias</h1>
+            <p *ngIf="mesaggeValid"> {{message}} </p>
+            <button *ngIf="!formValid" (click)="activeForm()" class="border bg-blue-300 p-2 w-2/12">Subir foto de la habitación.</button>
+
+            <section  *ngIf="formValid" class="bg-white flex flex-col py-4 px-20 space-y-4">
+                
+                 <label class="flex flex-col text-sm font-medium text-gray-700">
+                    Nombre:
+                    <input
+                    type="text"
+                    class="flex-1 mt-1 border p-2 rounded"
+                    placeholder="¿Cuál es el titulo de la foto/video?"
+                    [(ngModel)]="dto.tittle"
+                    />
+                </label>
+
+                <label class="flex flex-col text-sm font-medium text-gray-700">
+                    Descripción:
+                    <input
+                    type="text"
+                    class="flex-1 mt-1 border p-2 rounded"
+                    placeholder="Describe brevemente la habitación según la foto"
+                    [(ngModel)]="dto.description"
+                    />
+                </label>
+
+                <label class="flex flex-col text-sm font-medium text-gray-700">
+                    Imagen
+                    <input
+                    type="file"
+                    class="flex-1 mt-1 border p-2 rounded"
+                    (change)="onFileSelected($event)"
+                    />
+                </label>
+
+                <button
+                (click)="create()"
+                class="flex-1 border bg-slate-100 p-2 rounded font-semibold hover:bg-slate-200 transition"
+                >
+                {{ updateValid ? 'Actualizar' : 'Crear atributo' }}
+                </button>
+
+            </section>
+
+            <section class="bg-white">
+                <div class=" flex flex-row py-4 px-20 space-x-5"  *ngFor="let data of galleries"> 
+
+                    <img [src]="data.image" alt="Room image" width="500" class="flex-none" />
+                        <div class="flex flex-col space-y-2 flex-grow">
+                            <input type="text" class="flex-1" [value]="data.tittle" disabled>
+                            <input type="text" class="flex-1" [value]="data.description" disabled>
+                            
+                            <button (click)="delete(data.id)" class="flex-none border bg-slate-100 p-2" >Eliminar</button>
+                        </div>
+
+                </div>
+            </section>
+        </main>
+    </div>
+</div>

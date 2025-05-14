@@ -33,7 +33,6 @@ export class AttributeComponent {
     private attributeService: AttributeRoomService,
     private router:Router,
     private http:HttpClient,
-    private tokenService: TokenService,
   ){}
 
   ngOnInit(){
@@ -63,8 +62,7 @@ export class AttributeComponent {
     }
   }
   create(){
-    console.log("el dto");
-    console.log(this.dto)
+    
     if(this.file!=null){
       this.attributeService.create(this.dto,this.file).subscribe(data=>{
         this.attributes.push(data);

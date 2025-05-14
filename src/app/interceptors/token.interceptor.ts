@@ -54,7 +54,7 @@ export class TokenInterceptor implements HttpInterceptor {
 
     if (token) {
       const isFormData = request.body instanceof FormData;
-      console.log(isFormData);
+     
 
        let headers = new HttpHeaders({
         'Authorization': `Bearer ${token}`,

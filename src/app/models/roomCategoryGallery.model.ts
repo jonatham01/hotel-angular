@@ -1,13 +1,19 @@
+import { SafeResourceUrl } from "@angular/platform-browser";
+
 export interface RoomCategoryGallery{
     id: bigint;
     tittle: string;
-    roomGalleryDescription: string;
-    roomGalleryImageUrl: string;
-    roomCategoryId: number;
+    description: string;
+    imageUrl: string;
+    categoryId: number;
+    categoryName:string;
+    image: SafeResourceUrl|null;
+
+
+
 }
 export interface RoomCategoryGalleryRequestDTO{
     tittle: string;
     description: string;
-    categoryId: number;
-    image: File | null;
+    categoryId: number | null;
 }
