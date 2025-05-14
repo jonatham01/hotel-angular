@@ -44,9 +44,8 @@ export class AttributeComponent {
 
       this.attributeService.getAll(Number(id)).subscribe( attributeResponse =>{
          this.attributes = attributeResponse.map(attribute =>{
-          //console.log('http://localhost:8090/media/image/'+attribute.roomAttributePhotoUrl.replace("/uploads/", ""))
+          
           attribute.image = this._sanitizer.bypassSecurityTrustResourceUrl('http://localhost:8090/media/image/'+attribute.roomAttributePhotoUrl.replace("/uploads/", ""));
-          console.log(this._sanitizer.bypassSecurityTrustResourceUrl('http://localhost:8090/media/image/'+attribute.roomAttributePhotoUrl.replace("/uploads/", "")))
           return attribute;
          });
       });
@@ -95,7 +94,14 @@ export class AttributeComponent {
 
   }
   delete(id:number){
-
+    this.attributeService.delete(id);
+    this.attributes= this.attributes.filter( data => data.roomAttributeId !== id);
+    this.message = "Se elimino con exito la categoria"
+    this.mesaggeValid=true;
+    setTimeout(() => {
+      this.message = "";
+      this.mesaggeValid = false;
+    }, 10000); // 10000 ms = 10 segundos
   }
 
 

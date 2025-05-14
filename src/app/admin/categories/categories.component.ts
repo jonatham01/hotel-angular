@@ -111,5 +111,8 @@ export class CategoriesComponent {
   navigate(id:number){
      this.router.navigateByUrl('admin/attribute/'+id);
   }
+  navigateGaleria(id:number){
+     this.router.navigateByUrl('admin/galery/'+id);
+  }
 
 }

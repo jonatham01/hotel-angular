@@ -76,12 +76,12 @@ export class AttributeRoomService {
     }
 
   
-    delete(id: bigint) {
+    delete(id: number) {
       this.httpClient.delete<void>(
         `${this.apiUrl}/delete/${id}`
       ).pipe(
         catchError(this.handleError)
-      );
+      ).subscribe();
     }
     
 }
