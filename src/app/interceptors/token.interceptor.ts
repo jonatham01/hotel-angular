@@ -53,13 +53,18 @@ export class TokenInterceptor implements HttpInterceptor {
     const token = this.tokenService.getToken();
 
     if (token) {
-      const headers = new HttpHeaders({
+      const isFormData = request.body instanceof FormData;
+      console.log(isFormData);
+
+       let headers = new HttpHeaders({
         'Authorization': `Bearer ${token}`,
-        'Access-Control-Allow-Origin': '*',
-        'Access-Control-Allow-Methods': ['GET',' POST', 'PATCH', 'PUT', 'DELETE', 'OPTIONS'],
-        "Access-Control-Allow-Headers": "Origin, Content-Type, X-Auth-Token",
-        "Content-Type": "application/json"
       });
+
+      // Solo agrega Content-Type si no es FormData
+      if (!isFormData) {
+        headers = headers.set('Content-Type', 'application/json');
+      }
+
 
       const authReq = request.clone({
         headers:headers

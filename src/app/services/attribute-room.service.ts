@@ -1,30 +1,35 @@
-import { HttpClient, HttpErrorResponse, HttpParams } from '@angular/common/http';
+import { HttpClient, HttpErrorResponse, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { catchError, Observable, throwError } from 'rxjs';
 import { RoomAttributeRequestDTO, RoomAttributeResponseDTO } from '../models/roomAttribute.model';
+import { AuthService } from './auth.service';
+import { Token } from '@angular/compiler';
+import { TokenService } from './token.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AttributeRoomService {
 
-  apiUrl:string = "/fees";
+  apiUrl:string = "http://localhost:8090/room-attribute";
     
     private handleError = (error: HttpErrorResponse) => {
       return throwError(() => new Error('Error' + error.message));
     };
   
   constructor(
-      private httpClient:HttpClient
+      private httpClient:HttpClient,
+      private tokenservice: TokenService,
     ) { }
 
   create(dto: RoomAttributeRequestDTO, file: File): Observable<RoomAttributeResponseDTO> {
     const formData = new FormData();
-    // Convertir el objeto DTO a JSON y empaquetarlo como un Blob
-    const jsonBlob = new Blob([JSON.stringify(dto)], { type: 'application/json' });
+    formData.append('data', new Blob([JSON.stringify(dto)], { type: 'application/json' })); // DTO
 
-    formData.append('data', jsonBlob); // Parte llamada "data" (JSON)
+
     formData.append('file', file);     // Parte llamada "file" (archivo)
+
+
 
     return this.httpClient.post<RoomAttributeResponseDTO>(
       `${this.apiUrl}/create`,
@@ -43,9 +48,11 @@ export class AttributeRoomService {
       );
     }
   
-    getAll(): Observable<RoomAttributeResponseDTO[]> {
+    getAll(id:number): Observable<RoomAttributeResponseDTO[]> {
+       const params = new HttpParams().set('roomCategoryId', id);
       return this.httpClient.get<RoomAttributeResponseDTO[]>(
-        `${this.apiUrl}`
+        `${this.apiUrl}/by-category`,
+         {params}
       ).pipe(
         catchError(this.handleError)
       );

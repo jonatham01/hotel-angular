@@ -1,3 +1,5 @@
+import { SafeResourceUrl } from "@angular/platform-browser";
+
 export interface RoomAttribute{
     roomAttributeId: number;
     roomAttributeName: string;
@@ -7,7 +9,7 @@ export interface RoomAttribute{
 export interface RoomAttributeRequestDTO{
     roomAttributeName: string;
     roomAttributeDescription: string;
-    roomCategoryId:number
+    roomCategoryId:number |null;
 }
 export interface RoomAttributeResponseDTO{
     roomAttributeId: number;
@@ -15,4 +17,5 @@ export interface RoomAttributeResponseDTO{
     roomAttributeDescription: string;
     roomAttributePhotoUrl: string;
     roomCategoryId:number
+    image: SafeResourceUrl|null;
 }

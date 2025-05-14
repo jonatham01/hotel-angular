@@ -5,6 +5,7 @@ import { ReservationsComponent } from './reservations/reservations.component';
 import { RoomsComponent } from './rooms/rooms.component';
 import { CategoriesComponent } from './categories/categories.component';
 import { HotelComponent } from './hotel/hotel.component';
+import { AttributeComponent } from './attribute/attribute.component';
 
 const routes: Routes = [
   {
@@ -27,6 +28,10 @@ const routes: Routes = [
   {
     path:'rooms',
     component:RoomsComponent
+  },
+  {
+    path: 'attribute/:name',
+    component: AttributeComponent
   }
 ];
 

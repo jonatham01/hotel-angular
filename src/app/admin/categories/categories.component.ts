@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 import { RoomCategoryRequestDTO, RoomCategoryResponseDTO } from 'src/app/models/roomCategory.model';
 import { RoomCategoryService } from 'src/app/services/room-category.service';
 
@@ -29,6 +30,8 @@ export class CategoriesComponent {
 
   constructor(
     private categoryService:RoomCategoryService,
+    private router:Router
+    
   ){}
 
   ngOnInit(): void {
@@ -58,7 +61,7 @@ export class CategoriesComponent {
         setTimeout(() => {
         this.message = "";
         this.mesaggeValid = false;
-      }, 10000); // 10000 ms = 10 segundos
+      }, 3000); // 3000 ms = 3 segundos
       }
     );
   }
@@ -103,6 +106,10 @@ export class CategoriesComponent {
           this.message = "";
           this.mesaggeValid = false;
         }, 10000); // 10000 ms = 10 segundos
+  }
+
+  navigate(id:number){
+     this.router.navigateByUrl('admin/attribute/'+id);
   }
 
 }

@@ -13,6 +13,8 @@ import { CategoriesComponent } from './categories/categories.component';
 import { PaymentsComponent } from './payments/payments.component';
 import { GalleryComponent } from './gallery/gallery.component';
 import { HotelComponent } from './hotel/hotel.component';
+import { AttributeComponent } from './attribute/attribute.component';
+import { DisponibilityComponent } from './disponibility/disponibility.component';
 
 
 @NgModule({
@@ -23,7 +25,9 @@ import { HotelComponent } from './hotel/hotel.component';
     CategoriesComponent,
     PaymentsComponent,
     GalleryComponent,
-    HotelComponent
+    HotelComponent,
+    AttributeComponent,
+    DisponibilityComponent
   ],
   imports: [
     CommonModule,

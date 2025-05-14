@@ -52,6 +52,7 @@
             <section class="bg-white">
                 <div class=" flex flex-col py-4 px-20"  *ngFor="let category of categories" >
                     <div class="flex flex-row w-full gap-x-4 pb-4">
+                        <button (click)="navigate(category.roomCategoryId)"  class="flex-1 border bg-slate-100 p-2" >Ver/Añadir atributos</button>
                          <input type="text" class="flex-1" [value]="category.roomCategoryName" disabled>
                          <textarea type="text" class="flex-1" [value]="category.roomCategoryDescription" disabled > </textarea>
                          <input type="number" class="flex-1" [value]="category.roomCategoryPrice" disabled>
