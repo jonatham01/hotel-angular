@@ -14,6 +14,7 @@ export interface ReservationRequestDTO {
     reservationHotelId: number;
     reservationRoomCategoryId: number;
     reservationClientId: bigint;
+    paymentId:string;
 
 
 }

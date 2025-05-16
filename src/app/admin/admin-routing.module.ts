@@ -7,6 +7,7 @@ import { CategoriesComponent } from './categories/categories.component';
 import { HotelComponent } from './hotel/hotel.component';
 import { AttributeComponent } from './attribute/attribute.component';
 import { GalleryComponent } from './gallery/gallery.component';
+import { PaymentsComponent } from './payments/payments.component';
 
 const routes: Routes = [
   {
@@ -25,6 +26,10 @@ const routes: Routes = [
   {
     path:'reservations',
     component:ReservationsComponent
+  },
+  {
+    path:'payments',
+    component:PaymentsComponent
   },
   {
     path:'rooms',
