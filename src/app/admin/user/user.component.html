@@ -1,5 +1,10 @@
 <div class="flex  w-full bg-blue-500  justify-center">
     <div class="flex flex-row w-8/12    py-6 px-0 ">
+
+        <div class="flex flex-row space-x-4 ">
+            <p> {{ username }}</p>
+            <p> {{ role }}</p>
+       </div>
        
         <div class="flex flex-row space-x-8 pr-4  ">
             <p class="text-lg font-bold text-zinc-800 bg-transparent hover:bg-zinc-800 hover:text-white px-4 py-2 rounded cursor-pointer transition"
@@ -8,13 +13,10 @@
             <p class="text-lg font-bold text-zinc-800 bg-transparent hover:bg-zinc-800 hover:text-white px-4 py-2 rounded cursor-pointer transition" (click)="navigate('category')">Categorías</p>
             <p class="text-lg font-bold text-zinc-800 bg-transparent hover:bg-zinc-800 hover:text-white px-4 py-2 rounded cursor-pointer transition" (click)="navigate('rooms')">Habitaciones</p>
             <p class="text-lg font-bold text-zinc-800 bg-transparent hover:bg-zinc-800 hover:text-white px-4 py-2 rounded cursor-pointer transition" (click)="navigate('reservations')">Reservas</p>
-            <p class="text-lg font-bold text-zinc-800 bg-transparent hover:bg-zinc-800 hover:text-white px-4 py-2 rounded cursor-pointer transition" (click)="navigate('reservations')">Pagos</p>
+            
 
         </div>
-       <div class="flex flex-row space-x-4 ">
-            <p> {{ username }}</p>
-            <p> {{ role }}</p>
-       </div>
+       
 
     </div>
 

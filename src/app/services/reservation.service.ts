@@ -8,7 +8,7 @@ import { ReservationRequestDTO, ReservationResponseDTO } from '../models/reserva
 })
 export class ReservationService {
 
-  apiUrl:string = "http://localhost:8090/api/payment-transactions";
+  apiUrl:string = "http://localhost:8090/api/reservations";
         
   private handleError = (error: HttpErrorResponse) => {
     return throwError(() => new Error('Error' + error.message));
@@ -34,7 +34,7 @@ export class ReservationService {
       
         getAll(): Observable<ReservationResponseDTO[]> {
           return this.httpClient.get<ReservationResponseDTO[]>(
-            `${this.apiUrl}/all`
+            `${this.apiUrl}`
           ).pipe(
             catchError(this.handleError)
           );

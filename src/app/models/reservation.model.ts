@@ -8,13 +8,13 @@ export interface Reservation{
     reservationPaymentStatus: string;
 }
 export interface ReservationRequestDTO {
-    reservationStartDate: Date;
-    reservationEndDate: Date;
-    reservationTotalValue: number;
-    reservationHotelId: number;
-    reservationRoomCategoryId: number;
-    reservationClientId: bigint;
-    paymentId:string;
+    reservationStartDate: Date | null;
+    reservationEndDate: Date | null;
+    reservationTotalValue: number | null;
+    reservationHotelId: number | null;
+    reservationRoomCategoryId: number | null;
+    reservationClientId: bigint | null;
+    paymentId:string | null;
 
 
 }
@@ -24,4 +24,6 @@ export interface ReservationResponseDTO extends Omit<Reservation,'reservationPay
     reservationRoomId: number;
     reservationPaymentId: string;
     reservationClientId: bigint;
+    reservationRoomName:string;
+    reservationClientName:string;
 }

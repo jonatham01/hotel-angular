@@ -1,1 +1,59 @@
-<p>reservations works!</p>
+<div class="bg-slate-200 h-screen">
+    <app-user></app-user>
+    <div class="flex  w-full justify-center">
+        <main class="flex flex-col w-8/12     p-10 space-y-10  ">
+             <h1 class="text-xl">Admin/Reservas/Ocupación hotelera</h1>
+             <button (click)="emptyForm()" class="border bg-blue-300 p-2 w-2/12">
+                Ver todos los registros
+            </button>
+
+            <section class="bg-white flex flex-row py-4 px-20 space-x-4">
+                <label class="flex flex-col flex-1 text-sm font-medium text-gray-700">
+                    Número de reserva (Payment):
+                    <input
+                    type="text"
+                    class="flex-1 mt-1 border p-2 rounded"
+                    [(ngModel)]="idPayment"
+                    
+                    />
+                </label>
+                <button (click)="filter()" class="flex-1 border mt-5 bg-slate-100 p-2 rounded font-semibold hover:bg-slate-200 transition">
+                    Buscar
+                </button >
+            </section>
+
+            <section class="bg-white">
+                <div class=" flex flex-row py-4 px-20"  *ngFor="let reservation of filtered">
+
+                    <label class="flex-1">
+                        Cedula de cliente: <br>
+                        <input type="text" class="flex-1" [value]="reservation.reservationClientId " disabled>
+                        <br>
+                        Nombre:  <br> <input type="text" class="flex-1" [value]="reservation.reservationClientName" disabled>
+                    </label>
+
+                    <label  class="flex-1">
+                        Fecha de ingreso <br>
+                        <input type="text"  [value]="reservation.reservationStartDate " disabled> <br>
+                        Fecha de salida <br>
+                        <input type="text"  [value]="reservation.reservationEndDate" disabled>
+                    </label>
+
+                    <label class="flex-1">
+                        Total  <br> <input type="text" class="flex-1" [value]="reservation.reservationTotalValue" disabled><br>
+                        Habitación:  <br> <input type="text" class="flex-1" [value]="reservation.reservationRoomName" disabled>
+                    </label>
+
+                    <label  class="flex-1">
+                        Check In <br>
+                        <input type="text" [value]="reservation.reservationCheckinStatus" disabled>  <br>
+                        Check out <br>
+                        <input type="text" [value]="reservation.reservationCheckoutStatus" disabled>
+                    </label>
+
+                    <label class="flex-1">Reserva <br> <input type="text" class="flex-1" [value]="reservation.reservationPaymentId" disabled>    </label>                 
+                </div>
+            </section>
+        </main>
+    </div>
+</div>
