@@ -8,7 +8,7 @@ import { FeeRequestDTO, FeeResponseDTO } from '../models/fee.model';
 })
 export class FeeService {
 
-  apiUrl:string = "/fees";
+  apiUrl:string = "http://localhost:8090/fees";
     
     private handleError = (error: HttpErrorResponse) => {
       return throwError(() => new Error('Error' + error.message));

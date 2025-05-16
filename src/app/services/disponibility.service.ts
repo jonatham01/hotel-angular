@@ -8,7 +8,7 @@ import { Disponibility } from '../models/disponibility.model';
 })
 export class DisponibilityService {
 
-  apiUrl:string = "/disponibilities";
+  apiUrl:string = "http://localhost:8090/disponibilities";
     
     private handleError = (error: HttpErrorResponse) => {
       return throwError(() => new Error('Error' + error.message));

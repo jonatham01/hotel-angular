@@ -9,7 +9,7 @@ import { RoomRequest, RoomResponse } from '../models/room.model';
 export class RoomService {
 
 
-  apiUrl:string = "/room";
+  apiUrl:string = "http://localhost:8090/room";
     
     private handleError = (error: HttpErrorResponse) => {
       return throwError(() => new Error('Error' + error.message));
@@ -21,7 +21,7 @@ export class RoomService {
 
   create(dto: RoomRequest): Observable<RoomResponse> {
     return this.httpClient.post<RoomResponse>(
-      `${this.apiUrl}/upload`,dto
+      `${this.apiUrl}`,dto
   ).pipe(
     catchError(this.handleError)
   );
@@ -54,7 +54,7 @@ export class RoomService {
 
   
     delete(id: number) {
-      this.httpClient.delete<void>(
+     return  this.httpClient.delete<void>(
         `${this.apiUrl}/delete/${id}`
       ).pipe(
         catchError(this.handleError)

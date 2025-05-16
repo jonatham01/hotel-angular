@@ -88,7 +88,7 @@ export class CategoriesComponent {
         setTimeout(() => {
           this.message = "";
           this.mesaggeValid = false;
-        }, 10000); // 10000 ms = 10 segundos
+        }, 3000); // 3000 ms = 3 segundos
        });
     }
   
@@ -105,7 +105,7 @@ export class CategoriesComponent {
         setTimeout(() => {
           this.message = "";
           this.mesaggeValid = false;
-        }, 10000); // 10000 ms = 10 segundos
+        },  3000); // 3000 ms = 3 segundos
   }
 
   navigate(id:number){

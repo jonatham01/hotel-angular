@@ -8,7 +8,7 @@ import { ReservationRequestDTO, ReservationResponseDTO } from '../models/reserva
 })
 export class ReservationService {
 
-  apiUrl:string = "//api/payment-transactions";
+  apiUrl:string = "http://localhost:8090/api/payment-transactions";
         
   private handleError = (error: HttpErrorResponse) => {
     return throwError(() => new Error('Error' + error.message));

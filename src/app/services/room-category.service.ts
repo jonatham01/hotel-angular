@@ -59,9 +59,10 @@ export class RoomCategoryService {
 
     getAvailables(date: Date): Observable<RoomCategoryResponseDTO[]> {
       const formattedDate = date.toISOString().split('T')[0]; // "yyyy-MM-dd"
+      
 
       return this.httpClient.get<RoomCategoryResponseDTO[]>(
-        `${this.apiUrl}/available/${formattedDate}`
+        `${this.apiUrl}/available/${date.getFullYear}/${date.getMonth}/${date.getDate}`
       ).pipe(
         catchError(this.handleError)
       );

@@ -8,7 +8,7 @@ import { DisponibilityRoom, RoomCategoryDisponibilityRoomPK } from '../models/di
 })
 export class DisponibilityRoomService {
 
-  apiUrl:string = "/api/rcdr";
+  apiUrl:string = "http://localhost:8090/api/rcdr";
     
     private handleError = (error: HttpErrorResponse) => {
       return throwError(() => new Error('Error' + error.message));

@@ -20,5 +20,6 @@ export interface RoomCategoryResponseDTO extends RoomCategory{
     hotel: Hotel;
     roomAttributes:RoomAttribute[];
     roomCategoryGalleries: RoomCategoryGallery[];
+   
 
 }

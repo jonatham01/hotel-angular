@@ -7,7 +7,7 @@ import { catchError, Observable, throwError } from 'rxjs';
 })
 export class PaymentService {
 
-      apiUrl:string = "/payments";
+      apiUrl:string = "http://localhost:8090/payments";
       
       private handleError = (error: HttpErrorResponse) => {
         return throwError(() => new Error('Error' + error.message));

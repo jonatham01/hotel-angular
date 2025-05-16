@@ -1,1 +1,89 @@
-<p>rooms works!</p>
+<div class="bg-slate-200 h-screen">
+    <app-user></app-user>
+    <div class="flex  w-full justify-center">
+        <main class="flex flex-col w-8/12     p-10 space-y-10  ">
+            <h1 class="text-xl">Admin/Habitaciones</h1>
+            <p *ngIf="mesaggeValid"> {{message}} </p>
+             <button *ngIf="!formValid" (click)="activeForm()" class="border bg-blue-300 p-2 w-2/12">Registrar Habitación</button>
+
+             
+             <section  *ngIf="formValid" class="bg-white flex flex-col py-4 px-20 space-y-4">
+
+                <label class="flex flex-col text-sm font-medium text-gray-700">
+                    Número de habitación:
+                    <input
+                    type="text"
+                    class="flex-1 mt-1 border p-2 rounded"
+                    placeholder="Ejemplos: 102, A520, 6B"
+                    [(ngModel)]="dto.name"
+                    />
+                </label>
+                <label class="flex flex-col text-sm font-medium text-gray-700">
+                    Descripción
+                    <input
+                    type="text"
+                    class="flex-1 mt-1 border p-2 rounded"
+                    placeholder="¿Cuales son sus caracteristicas principales?"
+                    [(ngModel)]="dto.description"
+                    />
+                </label>
+                <label class="flex flex-col text-sm font-medium text-gray-700">
+                Estado de la categoría
+                <select
+                    class="flex-1 mt-1 border p-2 rounded"
+                    [(ngModel)]="dto.roomStatus"
+                >
+                    <option value="DISPONIBLE"  selected>Disponible</option>
+                    <option value="MANTENIMIENTO">Mantenimiento</option>
+                    <option value="PERSONAL">Personal</option>
+                </select>
+                </label>
+
+                <label class="flex flex-col text-sm font-medium text-gray-700">
+                Nombre de la categoría a la que pertenece
+                <select
+                    class="flex-1 mt-1 border p-2 rounded"
+                    [(ngModel)]="dto.roomCategoryId"
+                >
+                    <option value="" disabled selected>Seleccione una categoría</option>
+                    <option *ngFor="let category of categories" [value]="category.roomCategoryId">
+                    {{ category.roomCategoryName }}
+                    </option>
+                </select>
+                </label>
+
+                <button
+                (click)="updateValid ? update() : create()"
+                class="flex-1 border bg-slate-100 p-2 rounded font-semibold hover:bg-slate-200 transition"
+                >
+                {{ updateValid ? 'Actualizar' : 'Crear' }}
+                </button>
+
+             </section>
+
+             <section class="bg-white">
+                <div class=" flex flex-col py-4 px-20"  *ngFor="let room of rooms">
+                    <div class="flex flex-row w-full gap-x-4 pb-4">
+                        <button class="flex-1 border bg-slate-100 p-2" >Ocupación</button>
+
+                        <input type="text" class="flex-1" [value]="room.name" disabled>
+
+                         <textarea type="text" class="flex-1" [value]="room.description" disabled > </textarea>
+
+                         <input type="text" class="flex-1" [value]="room.categoryName" disabled>
+
+                         <input type="text" class="flex-1" [value]="room.roomStatus" disabled>
+
+
+                         <button (click)="updateForm(room)" class="flex-1 border bg-slate-100 p-2">Modificar</button>
+
+                        <button (click)="delete(room.roomId)" class="flex-1 border bg-slate-100 p-2" >Eliminar</button>
+
+                    </div>
+                </div>
+             </section>
+
+
+        </main>
+    </div>
+</div>
